@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Desafio Menu</title>
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: #ccc;
+            font-family: 'Oswald',sans-serif;
+        }
+
+        .cabecalho {
+          background-color: #222;
+          border-bottom: solid 5px #4faddb;
+          height: 80px;
+          box-sizing: content-box;
+        }
+
+        .logo {
+            display: inline-block;
+            height: 80px;
+            padding: 15px;
+        }
+
+        .logo img {
+            height: 100%;
+        }
+
+        .menu-toggle {
+            float: right;
+            color: #eee;
+            background-color: #555;
+            border: solid 1px #777;
+            border-radius: 5px;
+            height: 40px;
+            padding: 10px 20px;
+            margin: 20px 15px;
+            /* display: none; */
+        }
+
+        .menu {
+            display: inline-block;
+            vertical-align: top;
+            height: 80px;
+            padding: 25px;
+        }
+
+        .menu li {
+            display: inline-block; 
+        }
+
+        .menu li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.3em;
+            padding: 20px;
+        }
+
+        .menu a:hover, .menu a.selected {
+            background-color: #4faddb;
+            color: #000;
+        }
+
+        .autenticacao {
+            font-size: 1.3em;
+            float: right;
+            height: 80px;
+            padding:20px;
+        }
+        .autenticacao a {
+            text-decoration: none;
+            color: #fff;
+            /* padding:20px; */
+        }
+
+        .botao {
+            border-radius: 30px;
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #f50a31;
+            color: #fff;
+        }
+
+        @media (min-width:738px) {
+            .menu-toggle {
+                display: none;
+            }
+        }
+
+        @media (max-width:935px) {
+            .autenticacao {
+                display: none;
+            }
+        }
+
+        @media (max-width:740px) {
+            .menu {
+                display:none;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <header class="cabecalho">
+        <div class="logo">
+            <a href="#inicio">
+                <img src="http://files.cod3r.com.br/curso-web/logo.png" alt="Logo" />
+            </a>
+        </div>
+        <button class="menu-toggle">
+            <i class="fa fa-lg fa-bars"></i>
+        </button>
+        <nav class="menu">
+            <ul>
+                <li>
+                    <a href="#inicio">Início</a>
+                </li>
+                <li>
+                    <a href="#cursos">Cursos</a>
+                </li>
+                <li>
+                    <a href="#sobre">Sobre</a>
+                </li>
+                <li>
+                    <a href="#contato">Contato</a>
+                </li>
+            </ul>
+        </nav>
+        <aside class="autenticacao">
+            <a href="#login">Login</a>
+            <a href="#registar" class="botao">Registrar</a>
+        </aside>
+    </header>
+
+    <script>
+        // Código JS para botões do menu ficarem selecionados ao clicar
+        window.onhashchange = function(e) {
+            const oldURL = e.oldURL.split('#')[1];
+            const newURL = e.newURL.split('#')[1];
+
+            const oldLink = document.querySelector(`.menu a[href='#${oldURL}']`);
+            const newLink = document.querySelector(`.menu a[href='#${newURL}']`);
+            oldLink && oldLink.classList.remove('selected');
+            newLink && newLink.classList.add('selected');
+        }
+    </script>
+</body>
+
+</html>
