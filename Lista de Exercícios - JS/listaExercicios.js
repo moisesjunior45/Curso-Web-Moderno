@@ -69,10 +69,73 @@ nomeDoMes(4);
 // Ex5 - Crie uma função que receba dois números e retorne se o primeiro é maior ou igual ao segundo.
 
 function maiorOuIgual(num1, num2) {
-    if(typeof num1 != typeof num2) return false;
+    if (typeof num1 != typeof num2) return false;
     return num1 >= num2;
 }
 
 console.log(maiorOuIgual(0, 0));
 console.log(maiorOuIgual(0, "0"));
 console.log(maiorOuIgual(5, 1));
+
+/*Ex6 - Escreva uma função que receba um valor booleano ou numérico. Se o parâmetro fornecido for booleano, 
+o retorno da função deverá ser o inverso. Por exemplo, se a entrada for false, retornará true. 
+Se o parâmetro for numérico, o retorno será o numero inverso. Por exemplo, se for fornecido 1, o retorno será -1.
+Se o parâmetro de entrada não for de nenhum dos tipos acima,
+retorne "booleano ou número esperados, mas o parâmetro é do tipo...".*/
+
+function inverso(valor) {
+    if (typeof valor === "boolean") {
+        return !valor;
+    } else if (typeof valor == "number") {
+        return -valor;
+    } else {
+        return `booleano ou número esperados, mas o parâmetro é do tipo ${typeof valor}`;
+    }
+}
+
+console.log(inverso(true));
+console.log(inverso(6));
+console.log(inverso(-2000));
+console.log(inverso("programação"));
+
+/*Ex7 - Crie uma função que receba quatro números como parâmetro (numero, minimo, maximo, inclusivo)
+e retorne se o parâmetro numero (o primeiro) está entre o minimo e o maximo. 
+Quando o parâmetro inclusivo for true, tenha "entre" como inclusivo, ou seja, considerando se numero é igual a minimo ou a maximo.
+Caso o parâmetro inclusivo não seja informado, seu valor padrão deverá ser false, portanto, a lógica será exclusiva,
+não considerando se numero é igual a minimo ou a maximo.*/
+
+function estaEntre(numero, minimo, maximo, inclusivo = false) {    
+    if (inclusivo) {
+        return numero >= minimo && numero <=maximo;
+    } else {
+        return numero > minimo && numero < maximo;
+    }
+}
+
+console.log(estaEntre(50, 10, 100));
+console.log(estaEntre(160, 16, 100));
+console.log(estaEntre(3, 3, 150));
+console.log(estaEntre(3, 3, 150, true));
+
+
+
+
+
+
+
+
+/*Ex8 - Desenvolva uma função que recebe dois números inteiros não negativos (maiores ou iguais a zero)
+e realize a multiplicação deles. Porém, não utilize o operador de multiplicação*/
+
+function multiplicar(primeiroNumero, segundoNumero) {
+    let resultado = 0;
+    if(primeiroNumero <0 || segundoNumero <0) return "Valores não válidos";
+
+    for(let i=0; i<segundoNumero; i++) {
+        resultado += primeiroNumero;
+    }
+    return resultado;
+}
+
+console.log(multiplicar(5,5));
+console.log(multiplicar(0,7));
