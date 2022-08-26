@@ -104,9 +104,9 @@ Quando o parâmetro inclusivo for true, tenha "entre" como inclusivo, ou seja, c
 Caso o parâmetro inclusivo não seja informado, seu valor padrão deverá ser false, portanto, a lógica será exclusiva,
 não considerando se numero é igual a minimo ou a maximo.*/
 
-function estaEntre(numero, minimo, maximo, inclusivo = false) {    
+function estaEntre(numero, minimo, maximo, inclusivo = false) {
     if (inclusivo) {
-        return numero >= minimo && numero <=maximo;
+        return numero >= minimo && numero <= maximo;
     } else {
         return numero > minimo && numero < maximo;
     }
@@ -129,13 +129,45 @@ e realize a multiplicação deles. Porém, não utilize o operador de multiplica
 
 function multiplicar(primeiroNumero, segundoNumero) {
     let resultado = 0;
-    if(primeiroNumero <0 || segundoNumero <0) return "Valores não válidos";
+    if (primeiroNumero < 0 || segundoNumero < 0) return "Valores não válidos";
 
-    for(let i=0; i<segundoNumero; i++) {
+    for (let i = 0; i < segundoNumero; i++) {
         resultado += primeiroNumero;
     }
     return resultado;
 }
 
-console.log(multiplicar(5,5));
-console.log(multiplicar(0,7));
+console.log(multiplicar(5, 5));
+console.log(multiplicar(0, 7));
+
+/*Ex9 - Escreva uma função que receba dois parâmetros. O primeiro parâmetro é o elemento que repetirá, 
+enquanto que o segundo será o número de vezes que haverá repetição. Um array será retornado.*/
+
+function repetir(elementoParaRepetir, quantidadeVezes) {
+    let array = [];
+    
+    for (let i = 0; i < quantidadeVezes; i++) {
+        array.push(elementoParaRepetir);
+    }
+    return array;
+}
+
+console.log(repetir("codigo", 2));
+console.log(repetir(7, 3));
+
+
+
+
+
+// Ex10 - Elabore uma função que recebe um número como parâmetro e retorne uma string com o símbolo "+" na quantidade especificada no parâmetro
+
+function simboloMais(numero) {
+    let resultado = "";
+    for (let i=0; i < numero; i++) {
+        resultado += "+";
+    }
+    return resultado;
+}
+
+console.log(simboloMais(12));
+console.log(simboloMais(5));
