@@ -171,3 +171,15 @@ function simboloMais(numero) {
 
 console.log(simboloMais(12));
 console.log(simboloMais(5));
+
+// Ex11 - Crie uma função que receba uma array e retorna o primeiro e o último elemendo desse array como um novo array
+
+function primeiroEUltimoElemento(array) {
+    const indicePrimeiroElemento = array[0];
+    const indiceUltimoElemento = array[array.length - 1];
+
+    return [indicePrimeiroElemento, indiceUltimoElemento];
+}
+
+console.log(primeiroEUltimoElemento([7,14, "Olá"]));
+console.log(primeiroEUltimoElemento([-100, "aplicativo", 16]));    
