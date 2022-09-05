@@ -145,7 +145,7 @@ enquanto que o segundo será o número de vezes que haverá repetição. Um arra
 
 function repetir(elementoParaRepetir, quantidadeVezes) {
     let array = [];
-    
+
     for (let i = 0; i < quantidadeVezes; i++) {
         array.push(elementoParaRepetir);
     }
@@ -163,7 +163,7 @@ console.log(repetir(7, 3));
 
 function simboloMais(numero) {
     let resultado = "";
-    for (let i=0; i < numero; i++) {
+    for (let i = 0; i < numero; i++) {
         resultado += "+";
     }
     return resultado;
@@ -181,5 +181,23 @@ function primeiroEUltimoElemento(array) {
     return [indicePrimeiroElemento, indiceUltimoElemento];
 }
 
-console.log(primeiroEUltimoElemento([7,14, "Olá"]));
-console.log(primeiroEUltimoElemento([-100, "aplicativo", 16]));    
+console.log(primeiroEUltimoElemento([7, 14, "Olá"]));
+console.log(primeiroEUltimoElemento([-100, "aplicativo", 16]));
+
+/*Ex12 - Escreva uma função que recebe um objeto como primeiro parâmetro e, como segundo parâmetro, o nome de uma propriedade contida nesse objeto.
+Em seguida, retorne uma cópia desse objeto sem a propriedade especificada no segundo parâmetro.*/
+
+function removerPropriedade(objeto, propriedadeExcluida) {
+    const valorASerCopiado = Object.assign({}, objeto)  
+    //  const valorASerCopiado = {...objeto};
+    delete valorASerCopiado[propriedadeExcluida]
+
+    return valorASerCopiado
+}
+
+console.log(removerPropriedade({a:1, b:2}, "a"));
+console.log(removerPropriedade({
+    id: 20,
+    nome: "caneta",
+    descricao: "Não preenchido"
+}, "descricao"));
