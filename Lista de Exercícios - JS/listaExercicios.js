@@ -188,16 +188,92 @@ console.log(primeiroEUltimoElemento([-100, "aplicativo", 16]));
 Em seguida, retorne uma cópia desse objeto sem a propriedade especificada no segundo parâmetro.*/
 
 function removerPropriedade(objeto, propriedadeExcluida) {
-    const valorASerCopiado = Object.assign({}, objeto)  
+    const valorASerCopiado = Object.assign({}, objeto)
     //  const valorASerCopiado = {...objeto};
     delete valorASerCopiado[propriedadeExcluida]
 
     return valorASerCopiado
 }
 
-console.log(removerPropriedade({a:1, b:2}, "a"));
+console.log(removerPropriedade({ a: 1, b: 2 }, "a"));
 console.log(removerPropriedade({
     id: 20,
     nome: "caneta",
     descricao: "Não preenchido"
 }, "descricao"));
+
+
+// Ex13 - Crie uma função que receba um array de elementos e retorne um array somente com os números presentes no array recebido como parâmetro
+
+function filtrarNumeros(array) {
+    const somenteNumeros = [];
+    for (let item of array) {
+        if (typeof item === "number") {
+            somenteNumeros.push(item);
+        }
+    }
+    return somenteNumeros;
+}
+
+/* Resolução usando filter
+    function filtrarNumeros(array) {
+    return array.filter(item => typeof item === "number")
+}*/
+
+console.log(filtrarNumeros(["JavaScript", 1, "3", "web", 20]));
+console.log(filtrarNumeros(["a", "b"]));
+
+
+/*Ex14 - Desenvolva uma função que recebe como parâmetro um objeto e retorne um array de arrays, 
+em que cada elemento é um array formado pelos pares chave/valor que corresponde a um atributo do objeto.
+Observe os exemplos abaixo para um melhor entendimento:*/
+
+function objetoParaArray(objeto) {
+    const resultado = [];
+
+    for (let chave in objeto) {
+        resultado.push([chave, objeto[chave]]);
+    }
+    return resultado;
+}
+
+// Outra maneira de responder o exercício
+/*function objetoParaArray(objeto) {
+    return Object.entries(objeto);      // Object.entries - retorna um array cujos elementos são também arrays correspondentes aos pares de propriedades [key, value] 
+}*/
+
+
+console.log(objetoParaArray({
+    nome: 'Moisés',
+    profissao: 'Desenvolvedor de Software'
+}));
+
+console.log(objetoParaArray({
+    codigo: 11111,
+    preco: 12000
+}));
+
+// Ex15 - Elabore uma função que receba um array de números e retorne um array que tenha todos os números que são pares e que também tenham indices pares
+
+function receberSomenteOsParesDeIndicesPares(array) {
+    const resultado = [];
+
+    for(let i = 0; i < array.length; i++) { 
+        if(array[i] % 2 === 0 && i % 2 === 0 ) {
+            resultado.push(array[i]);
+        }
+    }
+    return resultado;
+}
+
+// Resposta usando filter
+/* 
+function receberSomenteOsParesDeIndicesPares(numeros) {
+    return numeros.filter((numero, indice) => {
+    const numeroPar = numero % 2 === 0
+    const indicePar = indice % 2 === 0
+    return numeroPar && indicePar
+})
+}*/
+console.log(receberSomenteOsParesDeIndicesPares([1, 2, 3, 4]));
+console.log(receberSomenteOsParesDeIndicesPares([10, 70, 22, 43]));
