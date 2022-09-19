@@ -306,3 +306,21 @@ console.log(checarAnoBissexto(2020));
 console.log(checarAnoBissexto(2100));
 
 // Ex17 - Escreva um array que receba um array de números e retornará a soma de todos os números desse array.
+
+function somarNumeros(array) {
+    let contador =0;
+    for (let i=0; i < array.length; i++) {
+        contador += array[i];
+    }
+    return contador;
+}
+
+console.log(somarNumeros([10, 10, 10]));
+console.log(somarNumeros([15, 15, 15, 15]));
+
+/*Ex18 - Você está trabalhando numa aplicação pessoal de controle de despesas. Na tela principal dessa aplicação, é
+possível adicionar produtos ou serviços, informando nome, categoria e preço. Uma funcionalidade que você está
+desenvolvendo no momento é a de somar o total das despesas.
+Crie uma função que receba um array de produtos e retorne o total das despesas.*/
+
+
