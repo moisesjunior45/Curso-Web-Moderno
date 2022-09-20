@@ -258,8 +258,8 @@ console.log(objetoParaArray({
 function receberSomenteOsParesDeIndicesPares(array) {
     const resultado = [];
 
-    for(let i = 0; i < array.length; i++) { 
-        if(array[i] % 2 === 0 && i % 2 === 0 ) {
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] % 2 === 0 && i % 2 === 0) {
             resultado.push(array[i]);
         }
     }
@@ -286,10 +286,10 @@ Com isso em mente, desenvolva uma função que recebe um número correspondente 
 bissexto ou não.*/
 
 function checarAnoBissexto(ano) {
-    const divisivelPorQuatro = ano %  4 === 0;
+    const divisivelPorQuatro = ano % 4 === 0;
     const diviselPorCem = ano % 100 === 0;
     const diviselPorQuatrocentos = ano % 400 === 0;
-    if((divisivelPorQuatro && !diviselPorCem) || diviselPorQuatrocentos) {
+    if ((divisivelPorQuatro && !diviselPorCem) || diviselPorQuatrocentos) {
         return "É bissexto";
     } else {
         return "Não é bissexto"
@@ -300,7 +300,7 @@ function checarAnoBissexto(ano) {
 /*function checarAnoBissexto(ano) {
     return new Date(ano, 1, 29).getDate() === 29;
     }*/
-    
+
 
 console.log(checarAnoBissexto(2020));
 console.log(checarAnoBissexto(2100));
@@ -308,8 +308,8 @@ console.log(checarAnoBissexto(2100));
 // Ex17 - Escreva um array que receba um array de números e retornará a soma de todos os números desse array.
 
 function somarNumeros(array) {
-    let contador =0;
-    for (let i=0; i < array.length; i++) {
+    let contador = 0;
+    for (let i = 0; i < array.length; i++) {
         contador += array[i];
     }
     return contador;
@@ -323,4 +323,100 @@ possível adicionar produtos ou serviços, informando nome, categoria e preço. 
 desenvolvendo no momento é a de somar o total das despesas.
 Crie uma função que receba um array de produtos e retorne o total das despesas.*/
 
+function despesasTotais(array) {
+    let totalItens = 0;
 
+    for (let item of array) {
+        totalItens += item.preco;
+    }
+    return totalItens;
+}
+
+// Resolução utilizando map e reduce
+/*function despesasTotais(array) {
+    return array
+    .map(item => item.preco)
+    .reduce((acumulador, valorAtual) => acumulador + valorAtual)
+}*/
+
+// Resolução utilizando reduce
+/*function despesasTotais(itens) {
+    return itens.reduce((acumulador, valorAtual) => acumulador + valorAtual.preco, 0)
+}*/
+
+console.log(despesasTotais([
+    { nome: "Jornal online", categoria: "Informação", preco: 89.99 },
+    { nome: "Cinema", categoria: "Entretenimento", preco: 150 }
+]));
+
+console.log(despesasTotais([
+    { nome: "Galaxy S22", categoria: "Eletrônicos", preco: 3599.99 },
+    { nome: "Macbook Pro", categoria: "Eletrônicos", preco: 30999.90 }
+]));
+
+
+/*Ex19 - Numa aplicação Web de investimento financeiro da qual você faz parte da equipe de desenvolvimento, 
+pretendese adicionar a funcionalidade de calcular a média de um conjunto de números informados pelo usuário.
+Com o intuito de realizar esse cálculo, crie uma função que receba um array com uma quantidade indeterminada
+de números e retorne a média simples desses números.*/
+
+function calcularMedia(numeros) {
+    let contador = 0;
+    let media = 0;
+
+    for (let i = 0; i < numeros.length; i++) {
+        contador += numeros[i];
+    }
+    return media = contador / numeros.length;
+}
+
+// Resolução usando for of
+
+/*function calcularMedia(numeros) {
+    const quantidadeDeNumeros = numeros.length
+    let somaTotal = 0
+    for(numero of numeros) {
+    somaTotal += numero
+    }
+    return somaTotal / quantidadeDeNumeros
+}*/
+
+//  Resolução usando reduce
+
+/*function calcularMedia(numeros) {
+    const quantidadeDeNumeros = numeros.length
+    const somaTotal = numeros.reduce((numeroA, numeroB) => numeroA + numeroB)
+    return somaTotal / quantidadeDeNumeros
+}*/
+
+
+console.log(calcularMedia([0, 10]));
+console.log(calcularMedia([1, 2, 3, 4, 5]));
+
+/*Ex20 - Faça uma função que recebe a base e a altura de um triângulo e retorne a área desse triângulo. A precisão deverá
+ser de duas casas decimais, arredondando se necessário. Obs: a fórmula para calcular a área de um triângulo é (base x altura) / 2   */
+
+function areaDoTriangulo(base, altura) {
+    const areaDoTriangulo = (base * altura) / 2;
+
+    return areaDoTriangulo.toFixed(2);
+}
+
+console.log(areaDoTriangulo(10, 15));
+console.log(areaDoTriangulo(7, 9));
+console.log(areaDoTriangulo(9.25, 13.1));
+
+// Ex21 - Criar uma função que receba um array de números e retorne o menor número desse array.
+
+function menorNumero(array) {
+    let menorValor = array[0];
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] < menorValor) {
+            menorValor = array[i];
+        }
+    }
+    return menorValor;
+}
+
+console.log(menorNumero([10, 5, 35, 65]));
+console.log(menorNumero([5, -15, 50, 3]));
