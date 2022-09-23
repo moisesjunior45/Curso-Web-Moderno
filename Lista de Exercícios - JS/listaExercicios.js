@@ -463,5 +463,46 @@ function contarCaractere(caractere, frase) {
     return contador;
 }
 
+// Resolução 2
+/*function contarCaractere(caractereBuscado, frase) {
+    return [...frase].filter(caractere => caractere === caractereBuscado).length
+}*/
+
 console.log(contarCaractere("r", "A sorte favorece os audazes"));
 console.log(contarCaractere("c", "Conhece-te a ti mesmo"));
+
+/*Ex25 - A fim de criar um mecanismo de busca para sua aplicação, você precisa iniciar criando uma função para
+identificar palavras semelhantes.
+Escreva uma função que recebe como primeiro parâmetro uma palavra e, como segundo parâmetro, um array de
+strings. A função deverá filtrar as palavras do array que contêm nelas a string do primeiro parâmetro.*/
+
+function buscarPalavrasSemelhantes(palavra, array) {
+    const resultado = [];
+
+    for (let indice of array) {
+        if (indice.includes(palavra))
+            resultado.push(indice);
+    }
+    return resultado;
+}
+
+// Resolução usando filter
+/*function buscarPalavrasSemelhantes(inicio, palavras) {
+    return palavras.filter(palavra => palavra.includes(inicio))
+}*/
+
+console.log(buscarPalavrasSemelhantes("pro", ["programação", "mobile", "profissional"]));
+console.log(buscarPalavrasSemelhantes("java", ["javascript", "java", "c++"]));
+
+/*Ex26 - Desenvolva uma função que receba uma frase como parâmetro e retorne essa string somente com as consoantes,
+ou seja, sem as vogais*/
+
+function removerVogais(frase) {
+    const vogais = ["a", "A", "e", "E", "i", "I", "o", "O", "u", "U"];
+
+    vogais.forEach(vogal => frase = frase.replace(vogal, ''))
+    return frase;
+}
+
+console.log(removerVogais("cod3r"));
+console.log(removerVogais("Fundamentos"));
