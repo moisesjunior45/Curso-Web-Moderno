@@ -12,7 +12,26 @@
         Classes
     </div>
     <script>
-        // ...
+        const div = document.querySelector('div');
+        const classes = div.classList;  // classList - propriedade retorna os nomes de classe CSS de um elemento e retorna um DOMTokenList.
+        classes.add('destaque');        //add - Adiciona um ou mais tokens à lista
+        classes.remove('destaque');     //remove - Remove um ou mais tokens da lista 
+        classes.toggle('destaque');     //toggle - Alterna entre tokens na lista
+        console.log(classes.contains('destaque'));      //contains - Retorna verdadeiro se a lista contiver uma classe
+        console.log(classes.length);    //length - Retorna o número de tokens na lista
+        classes.toggle('destaque');
+        console.log(classes.length);
+
+
+        classes.add('destaque1');
+        classes.add('destaque2');
+        console.log(classes.length);
+
+        for (let c of classes) {
+            console.log(c);
+        }
+
+        classes.forEach(c => console.log(c));
     </script>
 </body>
 
