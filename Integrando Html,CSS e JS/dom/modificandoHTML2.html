@@ -12,7 +12,17 @@
         <p>Texto Inicial</p>
     </div>
     <script>
-        // ...
+        const div = document.querySelector('div');
+        div.innerHTML = 'Texto Alterado';
+        // div.outerHTML = 'Texto Alterado';
+        // insertAdjacentHTML - método insere código HTML em uma posição especificada.
+        div.insertAdjacentHTML('beforebegin', '<p>Antes Início</p>');   // beforebegin - Antes do elemento.
+        div.insertAdjacentHTML('afterbegin', '<p>Depois Início</p>');   // afterbegin - Dentro do elemento, antes de seu primeiro filho (childNode).
+        div.insertAdjacentHTML('beforeend', '<p>Antes Fim</p>');        // beforeend - Dentro do elemento, após seu último filho (childNode) .
+        div.insertAdjacentHTML('afterend', '<p>Depois Fim</p>');        //afterend - Após o elemento.
+
+        // Somente texto (sem tags)
+        console.log(div.innerText);
     </script>
 </body>
 
