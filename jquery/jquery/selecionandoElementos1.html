@@ -49,6 +49,24 @@
     </form>
 
     <script>
-        // ...
+        $('#feira').addClass('destaque').removeClass('destaque');
+        $('li').addClass('destaque');
+        $('[wm-obrigatorio').removeClass('destaque');
+        $('li.opcional').removeClass('destaque');
+        $('div p span').addClass('destaque');
+
+        // Exclusivo jQuery
+        $('li:first').css('border', 'solid 3px yellow');
+        $('li:odd').css('border', 'solid 10px orange');     // Impares
+        $('li:gt(1)').css('border', 'solid 10px white');    // Maior que (determinado indice)
+        $('li:not(:last)').css('border', 'none');
+        $('li:contains("r")').css('background-color', 'black'); // Se contém determinado atributo
+
+        $('form *').hide();
+        $('form :text').show();
+        $('form :password').show();
+        $('form :checkbox').show();
+        $('form :radio').show();
+        $('form :file').show();
     </script>
 </body>
