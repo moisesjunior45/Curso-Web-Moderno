@@ -23,6 +23,10 @@
     <h1>Manipulando Atributos</h1>
     <div wm-relogio='1000'></div>
     <script>
-        // ...
+        function Relogio(elemento) {
+
+        }
+
+        $('[wm-relogio]').each((i, e) => new Relogio(e));
     </script>
 </body>
