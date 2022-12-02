@@ -26,6 +26,18 @@
         $('#div1').hover(alternarDestaque, alternarDestaque);
 
         $('#div1').one('mouseenter', e => alert('Aviso IMPORTANTE: Obrigado!'));
-        $('#div1').dblclick(e => $('#div'))
+        $('#div1').dblclick(e => $('#div').fadeOut(1000).fadeIn(1000));
+
+        $(window).resize(function (e) {
+            const l = $(window).width();
+            const a = $(window).height();
+            $('#resultado1').html(`Largura: ${l} e Altura: ${a}`);
+        });
+
+        $(':input').select(e => {
+            const inicio = e.target.selectionStart;
+            const fim = e.target.selectionEnd;
+            $('#resultado2').html(e.target.value.substring(inicio, fim));
+        })
     </script>
 </body>
