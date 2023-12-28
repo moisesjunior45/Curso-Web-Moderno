@@ -13,12 +13,12 @@
     <script>
         const url = 'dados/estados.json'
         fetch(url)
-            .then(res => res.json())
+            .then(resp => resp.json())
             .then(estados => {
                 const itens = estados.reduce(
-                    (html, estados) => html + `<li>${estados.nome}</li>`
+                    (html, estado) => html + `<li>${estado.nome}</li>`, ''
                 )
-                document.body.insertAdjacentElement('beforeend', '<ul>${itens}</ul>')
+                document.body.insertAdjacentHTML('beforeend', `<ul>${itens}</ul>`)
             })
     </script>
 </body>
