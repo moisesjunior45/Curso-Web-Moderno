@@ -20,5 +20,8 @@
     "url": "https://github.com/moisesjunior45/Curso-Web-Moderno/issues"
   },
   "homepage": "https://github.com/moisesjunior45/Curso-Web-Moderno#readme",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  }
 }
