@@ -1,3 +1,6 @@
 body {
     background-color: #444;
+    background-image: url(../imgs/tutoria.png);
+    background-repeat: no-repeat;
+    height: 100vh;
 }
