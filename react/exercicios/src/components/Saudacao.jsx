@@ -40,6 +40,7 @@ export default class Saudacao extends Component {
           value={nome}
           onChange={e => this.setNome(e)}
         />
+        <hr />
       </div>
     );
   }
