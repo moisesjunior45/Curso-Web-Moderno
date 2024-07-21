@@ -56,7 +56,7 @@ export default class Calculator extends Component {
   }
 
   addDigit(n) {
-    if (n === "." && this.state.displayValue.includes(".")) {
+    if (n === "." && typeof this.state.displayValue === 'string' && this.state.displayValue.includes('.')) {
       return;
     }
 
